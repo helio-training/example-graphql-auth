@@ -1,0 +1,47 @@
+{
+  "author": "Aric Beagley <abeagley@heliotraining.com>",
+  "dependencies": {
+    "bcrypt": "^1.0.2",
+    "body-parser": "^1.17.2",
+    "debug": "^2.6.8",
+    "express": "^4.15.4",
+    "graphql": "^0.10.5",
+    "graphql-server-express": "^1.0.5",
+    "graphql-tools": "^1.1.0",
+    "jsonwebtoken": "^7.4.2",
+    "lodash": "^4.17.4",
+    "lokka": "^1.7.0",
+    "lokka-transport-http": "^1.6.1",
+    "monk": "^6.0.3",
+    "monk-middleware-debug": "^0.2.0"
+  },
+  "description": "A graphql-server boilerplate for Node utilizing ES2015 Stage 2, JS Standard, and Monk.",
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-polyfill": "^6.23.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "babel-register": "^6.24.1",
+    "chai": "^4.1.1",
+    "eslint": "^4.4.1",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-node": "^5.1.1",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "mocha": "^3.5.0",
+    "nodemon": "^1.11.0",
+    "sinon": "^3.0.0"
+  },
+  "license": "MIT",
+  "main": "src/index.js",
+  "name": "helio-graphql-boilerplate-monk",
+  "repository": "https://github.com/helio-training/helio-graphql-boilerplate-monk",
+  "scripts": {
+    "build": "babel lib -d dist",
+    "serve": "node dist/index.js",
+    "start": "DEBUG='monk:*,api:*' nodemon src/index.js --exec babel-node",
+    "test": "mocha --compilers js:babel-register"
+  },
+  "version": "1.0.0"
+}
