@@ -16,6 +16,18 @@ export default {
       } catch (e) {
         throw e
       }
+    },
+
+    async user (_doc, _args, context, _info) {
+      try {
+        const decodedToken = jwt.verify(context.token, salt)
+        const user = await users.findOne({ _id: ObjectId(decodedToken.data._id) }, '-hashedPassword')
+        logger.info('Found user!')
+        logger.info(user)
+        return user
+      } catch (e) {
+        throw e
+      }
     }
   },
 
@@ -37,7 +49,7 @@ export default {
         const foundUser = await users.findOne({
           email: args.email,
           hashedPassword: await bcrypt.hash(args.password, salt)
-        })
+        }, '-hashedPassword')
 
         if (!foundUser) {
           return { token: null }
